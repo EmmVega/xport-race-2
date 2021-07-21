@@ -1,0 +1,33 @@
+.item {
+    display: flex;
+    justify-content: left;
+    margin: 5px;
+}
+
+.description {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    margin-left: 5px;
+    
+}
+
+p{
+    text-align: left;
+    margin: 5px;
+}
+
+.image{
+    width: 250px;
+    justify-content: left;
+}
+.image:hover{
+    background-color: blueviolet;
+    cursor: pointer;
+}
+
+.subtitle {
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+}
