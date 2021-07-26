@@ -8,18 +8,28 @@ const RUNNERSinitialState = {
     isRender: false,
     runnersList: []    
 };
+const AuthInitialState = {
+    isLoggedIn: false,
+    token: '',
+    username: 'user',
+    email: ''
+}
 
-// const renderInitialState = {status: false};
-
-// const isRenderSlice = createSlice({
-//     name: 'isRender',
-//     initialState: renderInitialState,
-//     reducers: {
-//         setIsRender(state){
-//             state.status = !state.status;
-//         }
-//     }
-// })
+const AuthSlice = createSlice({
+    name: 'auth',
+    initialState: AuthInitialState,
+    reducers: {
+        login (state, userInfo){
+            state.token = userInfo.payload.token;
+            state.email = userInfo.payload.email;
+            state.isLoggedIn = true;
+        },
+        logout (state){
+            state.isLoggedIn = false;
+            state.token = '';
+        }
+    }
+})
 
 const runnersSlice = createSlice({
     name: 'runners',
@@ -51,9 +61,10 @@ const racesSlice = createSlice({
 })
 
 const fountain = configureStore ({
-    reducer: {racesStore: racesSlice.reducer, runnersStore: runnersSlice.reducer}
+    reducer: {racesStore: racesSlice.reducer, runnersStore: runnersSlice.reducer, authStore: AuthSlice.reducer}
 })
 
 export default fountain;
 export const racesActions = racesSlice.actions;
 export const runnersActions = runnersSlice.actions;
+export const authActions = AuthSlice.actions

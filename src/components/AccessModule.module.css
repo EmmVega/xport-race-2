@@ -42,3 +42,11 @@
     border-radius: 15px;
 }
 
+.validation{
+    color: red;
+}
+
+button:disabled {
+    background-color: gray;
+    color:rgb(168, 168, 168)
+}

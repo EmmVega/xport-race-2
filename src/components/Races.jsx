@@ -10,7 +10,7 @@ const Races = () => {
     // const [wasFetched, setWasFetched] = useState(false); no longer needed, we're using Redux
     const dispatch = useDispatch();
     const localData = useSelector(state => state.racesStore.racesList);
-    const isRender = useSelector(state => state.racesStore.isRender)
+    const isRender = useSelector(state => state.racesStore.isRender);
 
     useEffect(() => {
         const fetchingData = async () => {
@@ -25,7 +25,7 @@ const Races = () => {
             fetchingData();
             dispatch(racesActions.setIsRender());
         }
-    },[])
+    },[dispatch, isRender])
     
     const listedRaces = localData.map((race) => {
             return (
@@ -35,6 +35,7 @@ const Races = () => {
                 distance={race.distance}
                 price={race.price}
                 img={race.img}
+                id={race.id}
                 />
                 );
     });
