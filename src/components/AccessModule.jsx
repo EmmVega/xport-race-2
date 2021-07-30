@@ -73,7 +73,11 @@ const AccessModule = () => {
           .then((res) => {
              if (res.ok) {
                 return res.json().then(data => {
+                  //  const objToStorage = JSON.stringify({
+                  //     token: data.idToken, email: data.email
+                  //  })
                    dispatch(authActions.login({token: data.idToken, email: data.email}))
+                   localStorage.setItem('token', data.idToken) // Saving the tokenID in storage
                    history.push(`/register/${params.race}`);
                 })
              } else {

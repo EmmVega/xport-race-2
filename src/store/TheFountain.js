@@ -11,7 +11,6 @@ const RUNNERSinitialState = {
 const AuthInitialState = {
     isLoggedIn: false,
     token: '',
-    username: 'user',
     email: ''
 }
 
@@ -27,6 +26,7 @@ const AuthSlice = createSlice({
         logout (state){
             state.isLoggedIn = false;
             state.token = '';
+            state.email = '';
         }
     }
 })
