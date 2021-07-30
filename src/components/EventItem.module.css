@@ -1,0 +1,9 @@
+.image{
+    width: 250px;
+    justify-content: left;
+}
+
+.component{
+    display: flex;
+    flex-direction: column;
+}
