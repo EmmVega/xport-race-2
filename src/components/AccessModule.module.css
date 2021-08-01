@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 170px;
+    margin-top: 120px;
     flex-direction: column;
 }
 
@@ -23,7 +23,7 @@
 .form label ~ input {
     display: flex;
     flex-direction: column;
-    background-color:rgb(243, 183, 164);
+    background-color:rgb(161, 184, 248);
     border-radius: 8px;
     font-size: 20px;
 }

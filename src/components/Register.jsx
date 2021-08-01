@@ -52,7 +52,7 @@ const Register = () => {
             setMyRaces(fetchedRaces)
         }
         getMyRaces();
-    })
+    },[])
 
     const registerHandler = async evt => {
         evt.preventDefault();
@@ -100,22 +100,45 @@ const Register = () => {
     }
     
     return (
-        <div className={classes.general}>
-            <form className={classes.form} ref={formRef} onSubmit={registerHandler}>
-                <label htmlFor="nickname">Nickname</label>
-                <input type="text" name='nickname' ref={nicknameRef} onChange={renderNicknameHandler} required/>
-                <label htmlFor="city">City</label>
-                <input type="text" name='city' required/>
-                <label htmlFor="number">Phone Number</label>
-                <input type="number" name='number' className={classes.number} required/>
-                <label htmlFor="address">Where should we send your kit?</label>
-                <input type="text" name='address' placeholder='Address' required/>
-                <button>Pre-Register!</button>
-            </form>
-            <img src="https://imgur.com/ABpIPjF.jpg" alt="diploma" className={classes.image} />
-            <div className={classes.diploma}>{nickname}</div>
-        </div>
-    )
+       <div className={classes.general}>
+
+          <div className={classes.diploma}>
+             <img
+                src="https://imgur.com/ABpIPjF.jpg"
+                alt="diploma"
+                className={classes.image}
+                />
+             <div className={classes.diplomaText}>{nickname}</div>
+          </div>
+
+          <form
+             className={classes.form}
+             ref={formRef}
+             onSubmit={registerHandler}
+          >
+             <label htmlFor="nickname">Nickname</label>
+             <input
+                type="text"
+                name="nickname"
+                ref={nicknameRef}
+                onChange={renderNicknameHandler}
+                required
+             />
+             <label htmlFor="city">City</label>
+             <input type="text" name="city" required />
+             <label htmlFor="number">Phone Number</label>
+             <input
+                type="number"
+                name="number"
+                className={classes.number}
+                required
+             />
+             <label htmlFor="address">Where should we send your kit?</label>
+             <input type="text" name="address" placeholder="Address" required />
+             <button>Pre-Register!</button>
+          </form>
+       </div>
+    );
 }
 
 export default Register;

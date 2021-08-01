@@ -106,7 +106,7 @@ const AccessModule = () => {
        const passEntered = passwordRef.current.value;
        if (!passIsValid && passEntered.length > 7){
           setPassIsValid(true);
-       } else {
+       } else if (passEntered.length <= 7){
           setPassIsValid(false);
        }
     }
@@ -139,6 +139,7 @@ const AccessModule = () => {
                 ref={passwordRef}
                 onBlur={passValidHandler}
                 onChange={validatingHandler}
+                
              />
              {!passIsValid && passWasTouched && (
                 <p className={classes.validation}>
