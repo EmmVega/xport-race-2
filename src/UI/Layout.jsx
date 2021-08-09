@@ -1,8 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import '../App.css';
+// import '../App.css';
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { authActions, racesActions } from '../store/TheFountain';
+import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import CloseButton from 'react-bootstrap/CloseButton';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const Layout = (props) => {
@@ -69,21 +72,46 @@ const Layout = (props) => {
              </Link>
           </header>
 
+         
+
           {isAuth && (
-             <nav className="nav">
+             <>
+ <Navbar bg="dark" variant='dark' expand="lg" >
+             <Container  >
+                <Navbar.Toggle aria-controls="basic-navbar-nav"  />
+                <Navbar.Collapse id="basic-navbar-nav"  className='justify-content-end'>
+                   <Nav >
+                      <li className="liItem">
+                   <Link to="/home" className="link">
+                         HOME
+                      </Link>
+                      </li>
+                      
+                      <li className="liItem" to="/" onClick={logoutHandler}>
+                      <Link className="link" to={""}>
+                         Logout
+                      </Link>
+                   </li>
+                   </Nav>
+                </Navbar.Collapse>
+             </Container>
+          </Navbar>
+
+             {/* <nav className="nav">
                 <ul className="ulItem">
                    <li className="liItem">
                       <Link to="/home" className="link">
                          HOME
                       </Link>
                    </li>
-                   <li className='liItem' to='/' onClick={logoutHandler}>
-                        <Link className='link' to={''}>
-                        Logout 
-                        </Link>
+                   <li className="liItem" to="/" onClick={logoutHandler}>
+                      <Link className="link" to={""}>
+                         Logout
+                      </Link>
                    </li>
                 </ul>
-             </nav>
+             </nav> */}
+             </>
           )}
           {props.children}
        </div>
